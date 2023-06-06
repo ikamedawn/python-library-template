@@ -1,1 +1,1 @@
-::: src.example
+::: <package-name-underscore>.example

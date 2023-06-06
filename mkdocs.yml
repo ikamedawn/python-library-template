@@ -57,7 +57,7 @@ plugins:
             lang: en
     -   mkdocstrings:
             watch:
-                - src
+                - <package-name-underscore>
 extra:
     social:
         -   icon: fontawesome/brands/github

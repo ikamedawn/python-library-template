@@ -10,12 +10,14 @@ read -p "Description: " description
 read -p "Enter github username: " github_username
 read -p "Enter email: " email
 
+package_name_underscore=$(echo "$package_name" | sed 's/-/_/g')
+
 # Enable workflows
 mv .github/workflows/dev.yml.rename .github/workflows/dev.yml
 mv .github/workflows/release.yml.rename .github/workflows/release.yml
 
-# Rename README.md.rename to README.md
 mv README.md.rename README.md
+mv src "$package_name_underscore"
 
 # Replace <package-name>, <email> and <github-username> in README.md, docs/installation.md, mkdocs.yml, pyproject.toml
 sed -i "s/<package-name>/$package_name/g" README.md
@@ -38,6 +40,14 @@ sed -i "s/<email>/$email/g" .github/workflows/release.yml
 
 sed -i "s/<description>/$description/g" README.md
 sed -i "s/<description>/$description/g" pyproject.toml
+
+# Replace <package-name-underscore>
+sed -i "s/<package-name-underscore>/$package_name_underscore/g" pyproject.toml
+sed -i "s/<package-name-underscore>/$package_name_underscore/g" mkdocs.yml
+sed -i "s/<package-name-underscore>/$package_name_underscore/g" tox.ini
+sed -i "s/<package-name-underscore>/$package_name_underscore/g" tests/test_app.py
+sed -i "s/<package-name-underscore>/$package_name_underscore/g" docs/api.md
+sed -i "s/<package-name-underscore>/$package_name_underscore/g" docs/usage.md
 
 # uncomment the following to init repo and push code to github
 git add .

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""Tests for `src` package."""
+"""Tests for `<package-name-underscore>` package."""
 # pylint: disable=redefined-outer-name
 
 import os
 import pytest
 
-from src import SampleClass
+from <package-name-underscore> import SampleClass
 
 
 @pytest.fixture
