@@ -1,7 +1,7 @@
 site_name: <package-name>
 # site_url: http://www.jieyu.ai
 repo_url: https://github.com/<github-username>/<package-name>
-repo_name: src
+repo_name: <package-name>
 #strict: true
 nav:
     -   Home: index.md
