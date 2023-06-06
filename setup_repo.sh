@@ -9,6 +9,13 @@ read -p "Enter package name: " package_name
 read -p "Enter github username: " github_username
 read -p "Enter email: " email
 
+# Enable workflows
+mv .github/workflows/dev.yml.rename .github/workflows/dev.yml
+mv .github/workflows/release.yml.rename .github/workflows/release.yml
+
+# Rename README.md.rename to README.md
+mv README.md.rename README.md
+
 # Replace <package-name>, <email> and <github-username> in README.md, docs/installation.md, mkdocs.yml, pyproject.toml
 sed -i "s/<package-name>/$package_name/g" README.md
 sed -i "s/<package-name>/$package_name/g" docs/installation.md
@@ -22,13 +29,6 @@ sed -i "s/<email>/$email/g" README.md
 sed -i "s/<email>/$email/g" docs/installation.md
 sed -i "s/<email>/$email/g" mkdocs.yml
 sed -i "s/<email>/$email/g" pyproject.toml
-
-# Enable workflows
-mv .github/workflows/dev.yml.rename .github/workflows/dev.yml
-mv .github/workflows/release.yml.rename .github/workflows/release.yml
-
-# Rename README.md.rename to README.md
-mv README.md.rename README.md
 
 # uncomment the following to init repo and push code to github
 git add .
