@@ -3,7 +3,7 @@
 name = "<package-name>"
 version = "0.1.0"
 homepage = "https://github.com/<github-username>/<package-name>"
-description = "Short description"
+description = "<description>"
 authors = ["<github-username> <<email>>"]
 readme = "README.md"
 license = "MIT"

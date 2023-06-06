@@ -5,7 +5,7 @@
 [![develop](https://github.com/<github-username>/<package-name>/actions/workflows/dev.yml/badge.svg)](https://github.com/<github-username>/<package-name>/actions/workflows/dev.yml)
 [![main](https://github.com/<github-username>/<package-name>/actions/workflows/release.yml/badge.svg)](https://github.com/<github-username>/<package-name>/actions/workflows/release.yml)
 
-A short description of the package.
+<description>
 
 ## Features
 
