@@ -10,7 +10,7 @@
     ".vscode",
     "docs",
     "**/__pycache__",
-    "ikamedawn_applovin_report.egg-info"
+    "*.egg-info"
   ],
 
   "ignore": [
@@ -19,5 +19,5 @@
 
   "reportMissingImports": true,
   "reportMissingTypeStubs": false,
-  "pythonVersion": "3.8"
+  "pythonVersion": "3.10"
 }
