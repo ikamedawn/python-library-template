@@ -1,3 +1,6 @@
 # Python Library Template
 
-Clone this repository and run setup_repo.sh to setup a new python library.
+Steps to use this template:
+1. Create a new repository on GitHub using this template
+2. Add permissions for workflow
+
