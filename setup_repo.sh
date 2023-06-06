@@ -27,6 +27,9 @@ sed -i "s/<email>/$email/g" pyproject.toml
 mv .github/workflows/dev.yml.rename .github/workflows/dev.yml
 mv .github/workflows/release.yml.rename .github/workflows/release.yml
 
+# Rename README.md.rename to README.md
+mv README.md.rename README.md
+
 # uncomment the following to init repo and push code to github
 git add .
 pre-commit run --all-files
