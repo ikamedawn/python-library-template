@@ -15,7 +15,7 @@ classifiers = [
     'Programming Language :: Python :: 3.10',
 ]
 packages = [
-    { include = "<package-name>" },
+    { include = "src" },
     { include = "tests", format = "sdist" },
 ]
 

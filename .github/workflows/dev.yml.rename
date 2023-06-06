@@ -54,7 +54,7 @@ jobs:
                 shell: bash
 
             -   name: test with tox
-                env:
+                # env:
                     # APPLOVIN_API_KEY: ${{ secrets.APPLOVIN_API_KEY }}
                 run: tox
 
