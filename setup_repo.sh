@@ -4,14 +4,39 @@
 # Personal token with full access rights is required to run this scripts
 # Once you got persona token, set enviroment variable GH_TOKEN with it
 
-# Take interactive input <package-name>, <email> and <github-username> from user
-read -p "Enter package name: " package_name
-read -p "Description: " description
+####################################################
+#               INPUTS FROM USER                   #
+####################################################
 read -p "Enter github username: " github_username
+# If github username is not provided, warn user and exit
+if [ -z "$github_username" ]; then
+    echo "Github username is required"
+    exit 1
+fi
+
+read -p "Enter package name: " package_name
+# If package name is not provided, warn user and exit
+if [ -z "$package_name" ]; then
+    echo "Package name is required"
+    exit 1
+fi
+
+read -p "Description: " description
+# If description is not provided, set to "Nothing"
+if [ -z "$description" ]; then
+    description="Nothing"
+fi
+
 read -p "Enter email: " email
+if [ -z "$email" ]; then
+    email="minhpc@ikameglobal.com"
+fi
 
 package_name_underscore=$(echo "$package_name" | sed 's/-/_/g')
 
+####################################################
+#                  RESTRUCTURE                     #
+####################################################
 # Enable workflows
 mv .github/workflows/dev.yml.rename .github/workflows/dev.yml
 mv .github/workflows/release.yml.rename .github/workflows/release.yml
@@ -19,6 +44,9 @@ mv .github/workflows/release.yml.rename .github/workflows/release.yml
 mv README.md.rename README.md
 mv src "$package_name_underscore"
 
+####################################################
+#               REPLACE VARIABLES                  #
+####################################################
 # Replace <package-name>, <email> and <github-username> in README.md, docs/installation.md, mkdocs.yml, pyproject.toml
 sed -i "s/<package-name>/$package_name/g" README.md
 sed -i "s/<package-name>/$package_name/g" docs/installation.md
@@ -49,6 +77,9 @@ sed -i "s/<package-name-underscore>/$package_name_underscore/g" tests/test_app.p
 sed -i "s/<package-name-underscore>/$package_name_underscore/g" docs/api.md
 sed -i "s/<package-name-underscore>/$package_name_underscore/g" docs/usage.md
 
+####################################################
+#                COMMIT CHANGES                    #
+####################################################
 # uncomment the following to init repo and push code to github
 git add .
 pre-commit run --all-files
