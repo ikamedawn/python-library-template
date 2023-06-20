@@ -20,6 +20,17 @@ if [ -z "$package_name" ]; then
     echo "Package name is required"
     exit 1
 fi
+# Check if package name is available on pypi
+package_name_available=$(curl -s https://pypi.org/project/$package_name/)
+if [[ $package_name_available == *"Page Not Found"* ]]; then
+    echo "Package name is available"
+else
+    echo "Package already exists. See https://pypi.org/project/$package_name/ for more details"
+    read -p "Do you want to continue? (y/N): " continue
+    if [ "$continue" != "y" ]; then
+        exit 1
+    fi
+fi
 
 read -p "Description: " description
 # If description is not provided, set to "Nothing"
