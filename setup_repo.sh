@@ -38,7 +38,7 @@ if [ -z "$description" ]; then
     description="Nothing"
 fi
 
-read -p "Enter email: " email
+read -p "Enter email (minhpc@ikameglobal.com): " email
 if [ -z "$email" ]; then
     email="minhpc@ikameglobal.com"
 fi
